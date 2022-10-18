@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+        <title>Plan</title>
+    </head>
+
+    <body>
+
+        <h1>
+            Plan
+        </h1>
+        
+        <div style="background-color: lightgreen;">
+
+        <h2>
+            Phase 0: Requirements Specification
+        </h2>
+
+            I need to create a Django framework for a blog website. Every webpage is going to have a dynamic element to it. I also need to work with the Views and Models, etc. to get everything to work correctly.
+
+            <h3>Good Solution</h3>
+
+                A good solution will let the user be able to click on all of the hyperlinks at any time and not have any crashes. Especially with the submit comment button. Also it will be easy to see that it is a blog.
+
+            <h3>Challenges</h3>
+
+                Getting to understand Django with all of the tutorial that is thrown at you seems extremely difficult. I have never used Django before, so that is definitely going to be a challenge for me.
+
+            <h3>Knowns</h3>
+
+                I have never used Django before this assignment, but I know how to write the basic HTML for the dynamic webpage creation. We did that in the last assignment.  From class, I am slowly grasping the Django information.
+         </div>
+
+        <div style="background-color: aqua">
+
+        <h2>
+            Phase 1: System Analysis
+        </h2>
+
+            <h3>Data</h3>
+
+                There is information that comes from static directorys and template directorys. Of course the static is information that shouldn't be changed, whereas the templates are information that can be edited.
+
+            <h3>Output</h3>
+
+                The output will be a Blog website. It is going to be implemented with the Django framework. There will be a way to add comments to the blog posts. There will be HTML pages that you can go to by clicking on links on the webpage.
+            
+            <h3>Algorithms</h3>
+
+            <ul>
+                <li>Views - There are going to be a lot of views for this assignment. These give the view for the user to see the information.</li>
+                <li>Models - Classes of objects that are going to be used throughout the Django framework.</li>
+                <li>Honestly, I didn't see too many algorithms, but I could be completely mistaken.</li>
+            </ul>
+
+        </div>
+
+        <div style="background-color: lightgreen">
+
+        <h2>
+            Phase 2: Design
+        </h2>
+
+        Disclaimer: I didn't know what to put in this section at points, so I just looked up small things from Django and wrote them down. This is what a path looks like
+        <pre>
+            <code>
+                path('', views.index, name='index')
+            </code>
+        </pre>
+
+        Creation of a view.
+        <pre>
+            <code>
+                def index(request):
+	                ....
+	                return render(request, 'blog/index.html')
+            </code>
+        </pre>
+
+        This is what a Model looks like.
+        <pre>
+            <code>
+                class Question(models.Model):
+                    question_text = models.CharField(max_length=200)
+                    ...
+            </code>
+        </pre>
+
+        </div>
+        <div style="background-color: aqua">
+        <h2>
+            Phase 3: Implementation
+        </h2>
+        
+        <h3>Problems/Learning</h3>
+
+        <ul>
+            <li>My Pseudocode was not the most helpful to me during this assignment. I felt like it was such a mountain to overcome that I just had to keep going back to the tutorial and videos over and over.</li>
+            <li>Also, I felt like it was extremely difficult to write the Pseudocode because I had no idea what Django was supposed to look like.</li>
+            <li>Making sure that every bit of your Django app runs well during the tutorial is key. I had a few bugs from the tutorial, and I ended up having similar bugs on the assignment.</li>
+            <li>I learned that Django is hard, but it is kinda sick.</li>
+        </ul>
+
+        </div>
+        <div style="background-color: lightgreen">
+        <h2>
+            Phase 4: Testing and Debugging
+        </h2>
+        
+            I made sure to go to every page and click on every link that was available and they all worked. I can click the submit button on comments with no information and it is fine. The most errors came from:
+
+        <ul>
+            <li>Comment View</li>
+            <li>Migrate</li>
+            <li>Small syntax mistakes</li>
+        </ul>
+        
+            I deleted some files from the migrations folder by accident and had an hour error just trying to fix it. I ended up deleting my pycache folder and deleting all of the migration files then remigrating and it fixed it. The comment View was the hardest part to figure out for sure and there was a lot of bugs with getting it to redirect to the right page. Here is also some code that helped me to figure out my migration issue.
+            
+            <pre>
+                <code>
+                    $ python manage.py showmigrations
+                    admin
+                    [X] 0001_initial
+                    [X] 0002_logentry_remove_auto_add
+                    [X] 0003_logentry_add_action_flag_choices
+                    auth
+                    [X] 0001_initial
+                    [X] 0002_alter_permission_name_max_length
+                    [X] 0003_alter_user_email_max_length
+                    [X] 0004_alter_user_username_opts
+                    [X] 0005_alter_user_last_login_null
+                    [X] 0006_require_contenttypes_0002
+                    [X] 0007_alter_validators_add_error_messages
+                    [X] 0008_alter_user_username_max_length
+                    [X] 0009_alter_user_last_name_max_length
+                    [X] 0010_alter_group_name_max_length
+                    [X] 0011_update_proxy_permissions
+                    [X] 0012_alter_user_first_name_max_length
+                    blog
+                    [X] 0001_initial
+                    [X] 0002_populate
+                    contenttypes
+                    [X] 0001_initial
+                    [X] 0002_remove_content_type_name
+                    hello
+                    (no migrations)
+                    polls
+                    [X] 0001_initial
+                    sessions
+                    [X] 0001_initial
+                </code>
+            </pre>
+
+            This helped me to see if the migration was working after I accidentally deleted it.
+
+        </div>
+
+        <div style="background-color: aqua">
+        <h2>
+            Phase 5: Deployment
+        </h2>
+
+            I turned in the zip file and made sure that each of the files were properly named.
+        </div>
+
+        <div style="background-color: lightgreen">
+        <h2>
+            Phase 6: Maintenance
+        </h2>
+
+            What parts of your program are sloppily written and hard to understand?
+            <ul>
+                <li>I feel like my views are slightly difficult to understand. Specifically the comment view, it just was so difficult to get the comment view to work that the syntax struggled.</li>
+            </ul>
+            
+            Are there parts of your program which you aren’t quite sure how/why they work?
+            <ul>
+                <li>The views were a little confusing to me, but the most confusing part to me was the foreignKey. There was so many times when it was passed into a function and I didn't understand what it was doing.</li>
+            </ul>
+        
+            If a bug is reported in a few months, how long would it take you to find the cause?
+            <ul>
+                <li>This one would take me a very long time to figure out. I would be able to find the location of the bug, but fixing it would be hard.</li>
+            </ul>
+            
+            Will your documentation make sense to anybody besides yourself?    
+            <ul>
+                <li>I think my documentation isn't the best for this assignment.</li>
+            </ul>
+        
+            yourself in six month’s time?   
+            <ul>
+                <li>I would definitely have to look over the files for a long time to understand it.</li>
+            </ul>
+        
+            How easy will it be to add a new feature to this program in a year?    
+            <ul>
+                <li>It wouldn't be that bad if you know Django. I think that adding something new is very feasible.</li>
+            </ul>
+        
+            Will your program continue to work after upgrading
+                your computer’s hardware?
+            <ul>
+                <li>Definitely.</li>
+            </ul>
+           
+                the operating system?   
+            <ul>
+                <li>Definitely.</li>
+            </ul>
+         
+                to the next version of Python? 
+            <ul>
+                <li>Possibly. I don't know with Django.</li>
+            </ul>
+        </div>
+    </body>
+</html>
