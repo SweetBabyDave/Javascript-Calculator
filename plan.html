@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8"/>
-        <link rel="stylesheet" href="{% static 'blog/style.css' %}"/>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
         <title>Plan</title>
     </head>
 
@@ -15,23 +15,39 @@
         
         <div style="background-color: lightgreen;">
 
-        <h2>
-            Phase 0: Requirements Specification
-        </h2>
+            <h2>
+                Phase 0: Requirements Specification
+            </h2>
 
-            I need to create a Django framework for a blog website. Every webpage is going to have a dynamic element to it. I also need to work with the Views and Models, etc. to get everything to work correctly.
+                <ul>
+                    <li>I need to use Javascript to build a webpage with the DOM instead of HTML.</li>
+                    <li>This Javascript webpage will have a calculator that can create objects in the DOM.</li>
+                    <li>The user interacting with the webpage will also be able to destroy these DOM objects.</li>
+                </ul>
 
             <h3>Good Solution</h3>
 
-                A good solution will let the user be able to click on all of the hyperlinks at any time and not have any crashes. Especially with the submit comment button. Also it will be easy to see that it is a blog.
+            <ul>
+                <li>It can take all inputs into the calculator, including negative inputs and dividing by zero.</li>
+                <li>All of the operations can be deleted in any order. It doesn't matter if it's at the top, bottom, or middle.</li>
+                <li>The user interacting with the webpage will be able to follow all of the prompts necessary.</li>
+                <li>It also won't crash when you pass in a string.</li>
+            </ul>
 
             <h3>Challenges</h3>
 
-                Getting to understand Django with all of the tutorial that is thrown at you seems extremely difficult. I have never used Django before, so that is definitely going to be a challenge for me.
+            <ul>
+                <li>Understanding Javascript will be a challenge for sure. I've never used Javascript before, so I will definitely need to do my research.</li>
+                <li>I'll need to learn the syntax for changing the div color dynamically at the users will.</li>
+            </ul>
 
             <h3>Knowns</h3>
 
-                I have never used Django before this assignment, but I know how to write the basic HTML for the dynamic webpage creation. We did that in the last assignment.  From class, I am slowly grasping the Django information.
+            <ul>
+                <li>Creating the divs shouldn't be too bad. I've done that before on a lot of different assignments.</li>
+                <li>Evaluating expressions also should be pretty easy.</li>
+            </ul>
+
          </div>
 
         <div style="background-color: aqua">
