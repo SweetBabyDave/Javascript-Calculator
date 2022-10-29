@@ -4,7 +4,6 @@
 
 document.title = "Javascript Calculator"
 
-
 var div = document.createElement('div');
 div.setAttribute('class', 'green');
 document.body.appendChild(div);
@@ -16,7 +15,7 @@ h1.setAttribute('class', 'center');
 div.appendChild(h1);
 
 var p = document.createElement('p');
-p.textContent = "Create an Expression:";
+p.textContent = "Create an expression and choose color for <div>:";
 p.setAttribute('style', 'font-size: 30px');
 p.setAttribute('class', 'center');
 div.appendChild(p);
@@ -72,6 +71,45 @@ form.appendChild(input3);
 
 var button = document.createElement('button');
 button.setAttribute('type', 'button');
+button.setAttribute('onclick', 'createDiv()');
 button.textContent = "Compute";
 form.appendChild(button);
 
+var createDiv = function() {
+    const date = new Date();
+    const [month, day, year, hour, minutes, seconds] = [date.getMonth(), date.getDate(), date.getFullYear(), date.getHours(), date.getMinutes(), date.getSeconds()];
+    
+    if (input1.value == "") {
+        createErrorDiv(date)
+        return;
+    } 
+    if (input2.value == "") {
+        createErrorDiv(date)
+        return;
+    }
+    firstNum = input1.value;
+    secondNum = input2.value;
+    operand = select.value;
+    color = input3.value;
+    var expression = evaluateExpression(firstNum, secondNum, operand);
+
+    var div1 = document.createElement('div');
+    div1.setAttribute('style', 'background-color: ' + color);
+    div1.setAttribute('class', 'center');
+    div1.setAttribute('onclick', 'this.remove()');
+    div1.textContent = date + " " + firstNum + " " + operand + " " + secondNum + " = " + expression;
+    document.body.appendChild(div1);
+}
+
+var createErrorDiv = function(date) {
+    var div1 = document.createElement('div');
+    div1.textContent = date + " ERROR! MISSING OPERANDS!";
+    div1.setAttribute('style', 'background-color: red');
+    div1.setAttribute('class', 'center');
+    div1.setAttribute('onclick', 'this.remove()');
+    document.body.appendChild(div1);
+}
+
+var evaluateExpression = function(firstNum, secondNum, operand) {
+    return eval(firstNum + operand + secondNum);
+}

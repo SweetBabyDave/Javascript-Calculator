@@ -58,18 +58,25 @@
 
             <h3>Data</h3>
 
-                There is information that comes from static directorys and template directorys. Of course the static is information that shouldn't be changed, whereas the templates are information that can be edited.
+            <ul>
+                <li>There will be data created in the JavaScript. That will be the only place that the data is coming from to create the HTML.</li>
+                <li>There will be some data coming from the stylesheet to help out with some of the divs.</li>
+            </ul>
 
             <h3>Output</h3>
 
-                The output will be a Blog website. It is going to be implemented with the Django framework. There will be a way to add comments to the blog posts. There will be HTML pages that you can go to by clicking on links on the webpage.
+            <ul>
+                <li>It will be a calculator that is fully created by JavaScript.</li>
+                <li>This calculator can evaluate expressions that are put into it.</li>
+                <li>It will also be able create and remove divs of the expressions that were completed.</li>
+            </ul>
             
             <h3>Algorithms</h3>
 
             <ul>
-                <li>Views - There are going to be a lot of views for this assignment. These give the view for the user to see the information.</li>
-                <li>Models - Classes of objects that are going to be used throughout the Django framework.</li>
-                <li>Honestly, I didn't see too many algorithms, but I could be completely mistaken.</li>
+                <li>CreateDiv - We create the div that is going to be used to show the expression.</li>
+                <li>CreateErrorDiv - Similar to the CreateDiv, but it is going to be used to create the divs that come up when an error is found.</li>
+                <li>Evaluating Expression - It just takes the 2 input values and an operand and computes the end value.</li>
             </ul>
 
         </div>
@@ -80,28 +87,33 @@
             Phase 2: Design
         </h2>
 
-        Disclaimer: I didn't know what to put in this section at points, so I just looked up small things from Django and wrote them down. This is what a path looks like
+        CreateDiv
         <pre>
             <code>
                 path('', views.index, name='index')
             </code>
         </pre>
 
-        Creation of a view.
+        createErrorDiv 
         <pre>
             <code>
-                def index(request):
-	                ....
-	                return render(request, 'blog/index.html')
+                var createErrorDiv = function() {
+                    var div = document.createElement('div');
+	                ...
+                    # Set attributes for the div here along with the text.
+                    ...
+                    document.body.appendChild(div);
+	                return render(request, 'blog/index.html');
+            }
             </code>
         </pre>
 
-        This is what a Model looks like.
+        evaluateExpression - This algorithm seemed extremely straight forward, but we will see what happens in the code.
         <pre>
             <code>
-                class Question(models.Model):
-                    question_text = models.CharField(max_length=200)
-                    ...
+                var evaluateExpression = function(firstNum, secondNum, operand) {
+                    return eval(firstNum + operand + secondNum);
+                }
             </code>
         </pre>
 
