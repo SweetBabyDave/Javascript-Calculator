@@ -4,6 +4,8 @@
 
 document.title = "Javascript Calculator"
 
+// This first part is just creating all of the elements that you see in the top div.
+
 var div = document.createElement('div');
 div.setAttribute('class', 'green');
 document.body.appendChild(div);
